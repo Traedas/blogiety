@@ -1,0 +1,20 @@
+baseurl = ""
+languageCode = "en-gb"
+title = "Blogiety"
+theme = "hpstr"
+pluralizelisttitles = false
+PygmentsCodeFences = true
+Paginate = 5
+disqusShortname = "blogiety-de"
+
+[params]
+	subtitle = "Die Blogging Society by Worldiety"
+	[params.author]
+		name = "Worldiety"
+		avatar = "/images/top_right_logo.png"
+		bio = "Discussion board for worldiety"
+		github = "dldx/hpstr-hugo-theme"
+	[params.image]
+	  feature = "/images/abstract-1.jpg"
+	 
+	  

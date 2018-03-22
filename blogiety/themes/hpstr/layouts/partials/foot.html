@@ -1,0 +1,69 @@
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    {{ partial "footer.html" . }}
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+{{ partial "scripts.html" . }}
+<script >
+window.onresize = function(event) {
+   var menu = document.getElementById("mobilemenu") 
+   menu.style.height="0px"
+menu.style.opacity="0";
+};
+
+$('.shariff-link').hover(
+  function(){
+	//$(this).style.background(rgba(0,0,0,0))
+	$(this).css("background-color", "rgba(0,0,0,0)")
+  //$(this).css({'background': 'rgba(0,0,0,0)'}
+  },
+ 
+);
+$('.shariff-link').mouseleave(function(){
+ 	$(this).css("background-color", "white")
+});
+
+$("#image-button").click(function() {
+
+var menu = document.getElementById("mobilemenu")
+var main = document.getElementById("main")
+main.style.position="relative"
+if(menu.style.height!="275px"){
+
+
+menu.style.height="275px"
+menu.style.opacity="1";
+}else{
+menu.style.height="0px"
+menu.style.opacity="0";
+
+}
+  $('.transform').toggleClass('transform-active');
+  
+});
+
+
+
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+</body>
+</html>

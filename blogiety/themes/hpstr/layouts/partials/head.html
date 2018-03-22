@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{{ `<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en">
+   <![endif]-->
+   <!--[if (IE 7)&!(IEMobile)]>
+   <html class="no-js lt-ie9 lt-ie8" lang="en">
+      <![endif]-->
+      <!--[if (IE 8)&!(IEMobile)]>
+      <html class="no-js lt-ie9" lang="en">
+         <![endif]-->
+         <!--[if gt IE 8]><!--> 
+         <html class="no-js" lang="en">
+            <!--<![endif]-->` | safeHTML }}
+            <head>
+               <meta charset="utf-8">
+			   <link type="image/x-icon" rel="icon" href="http://192.168.2.23/wp-content/themes/worldiety/images/favicon.ico">
+              <title>worldiety - Softwareunternehmen für Apps (Android, iOS), Cloud &amp; Web für Oldenburg, Bremen und Niedersachsen</title>
+			  <meta name="description" content="Worldiety entwickelt Ihre Android- oder iOS-App, Web- oder Cloud-Software und berät Sie beim Einstieg in die mobile Welt: Persönlich vor Ort, freundlich und kompetent. Unsere Programmierer sind spezialisiert auf die Software-Entwicklung von Anwendungen in den Bereichen E-Commerce, Geschäftsprozesse, Bildverarbeitung, 2D/3D-Visualisierung und der Cloud.">
+               <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+               {{ if .IsHome }}
+               {{ $.Scratch.Set "Params" .Site.Params }}
+               {{ else if .IsNode }}
+               {{ $.Scratch.Set "Params" (index .Site.Data.sections (lower .Title)) }}
+               {{ else }}
+               {{ $.Scratch.Set "Params" .Params }}
+               {{ end }}
+               {{ if .Params.tags }}<meta name="keywords" content="{{ delimit .Params.tags ", " }}">{{ end }}
+               <!-- Open Graph and Twitter cards -->
+               {{ partial "twitter_og_cards.html" . }}
+               {{ with .Site.Params.google_verify }}
+               <meta name="google-site-verification" content="{{ . }}">
+               {{ end }}
+               {{ with .Site.Params.bing_verify }}
+               <meta name="msvalidate.01" content="{{ . }}">
+               {{ end }}
+               <link rel="canonical" href="{{ .Permalink }}">
+               {{ if .RSSLink }}
+               <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+               <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+			     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+               {{ end }}
+               <!-- http://t.co/dKP3o1e -->
+               <meta name="HandheldFriendly" content="True">
+               <meta name="MobileOptimized" content="320">
+               <meta name="viewport" content="width=device-width, initial-scale=1.0">
+               <!-- For all browsers -->
+               <link rel="stylesheet" href="{{ "/css/main.css" | relURL }}">
+               <!-- Webfonts -->
+               <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+               <meta http-equiv="cleartype" content="on">
+               <!-- Hugo version -->
+               <nav class="sticky-nav" >
+                  <div class="adjustable-menu">
+                    
+                    <div width="100%"> 
+					 <a class="header_logo_link" href="http://worldiety.com" target="blank"><img src="/images/logo_white_smaller.png" alt="Hier wird ihre Werbung stehen!" class="header_logo"></a>
+					<ul class="hide-navbar">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/posts/erklärungen/">Erklärungen</a></li>
+						<li style="max-width: 770px;min-width: 33%;"></li>
+						 <li style="float:right"><a href="/posts/">Archiv</a></li>
+                        <li style="float:right">
+                           <div class="dropdown ">
+                              <button onclick="myFunction()" class="dropbtn">Boards</button>
+                              <div id="myDropdown" class="dropdown-content">
+                                 <a href="/azubiposts/">Verlauf eines Azubis</a>
+                                 <a href="/posts/azubiposts/der_erste_post/">Über uns</a>
+                                 <a href="/posts/azubiposts/create/">Einen Post erstellen</a>
+                                 <a href="/tags/">Themen</a>
+                              </div>
+                           </div>
+                        </li>
+						
+                     </ul>
+					 </div>
+                     <div class="header-button" id="image-button">
+                        <img  src="/images/button_menue.png" >
+                     </div>
+                  </div>
+               </nav>
+               <div class="container_header_mobilemenu transform" id="mobilemenu">
+                  <nav>
+                     <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/posts/azubiposts/create/">Erklärungen</a></li>
+                        <li><a href="/azubiposts/">Verlauf eines Azubis</a></li>
+                        <li><a href="/posts/azubiposts/der_erste_post/">Über uns</a></li>
+                        <li><a href="/posts/">Kronologie</a></li>
+                        <li><a href="/tags/">Themen</a></li>
+                     </ul>
+                  </nav>
+               </div>
+               {{ .Hugo.Generator }}
+               <!-- Load Modernizr -->
+               <script src="{{ "/js/vendor/modernizr-2.6.2.custom.min.js" | relURL }}"></script>
+               <!-- Icons -->
+               <link rel="shortcut icon" href="{{ "images/Draw-Catdog.jpg" | relURL }}">
+               {{ with $.Param "background" }}
+               <style type="text/css">body {background-image:url({{ . }});}</style>
+               {{ end }}
+            </head>
